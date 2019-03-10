@@ -1,8 +1,20 @@
-{% extends "szablon.html" %}
-{% block tytul %}Quiz – Błąd{% endblock %}
-{% block h1 %}Brak takiego zasobu!{% endblock %}
-{% block tresc %}
-    <div class="alert-waring">
-    <h3>Przepraszamy, wystąpił błąd</h3>
-    Przejdz do <a href="{{ url_for('index') }}"
+{% extends "szablon.html"%}
+{% block tytul%}Błąd{% endblock%}
+{% block h1%} Brak takiego zasobu! {% endblock%}
+{% block tresc%}
+
+
+    <div class="box col-lg-5 mx-auto">
+        <h1>404</h1>
+        <h2>Nie można znaleźć strony</h2>
+        <hr/>
+        <p>Strona, której szukasz, mogła zostać usunięta</p>
+        <p>Spróbuj:</p>
+            <ul>
+                <li> Jeśli wpiszesz adres strony na <strong> pasku adresu </strong>, upewnij się, że jest on wpisany poprawnie. </li>
+                <li> Kliknij przycisk <a href="{{ url_for('index') }}"><strong> Wstecz </strong></a>, aby powrócić do strony głównej </li>
+            </ul>
     </div>
+
+
+{% endblock%}
