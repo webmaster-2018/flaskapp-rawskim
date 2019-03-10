@@ -1,28 +1,25 @@
-# -*- coding: utf-8 -*-
-# quiz-orm/forms.py
+#!/usr/bin/env python
+# -- coding: utf-8 --
 
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SelectField
-from wtforms import StringField, HiddenField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms import HiddenField, StringField, BooleanField
+from wtforms import SelectField, FormField, FieldList
+from wtforms.validators import Required
 
-blad1 = 'To pole jest wymagane'
+blad_1 = 'To pole jest wymagane'
 
+class DodajForm(FlaskForm):
+    imie = StringField('Imie: ', validators=[Required(message="blad_1")])
+    nazwisko = StringField('Nazwisko: ', validators=[Required(message="blad_1")])
+    plec = SelectField('Płec: ', coerce=int)
+    klasa = SelectField('Klasa: ', coerce=int)
 
-class KlasaForm(FlaskForm):
     id = HiddenField()
-    nazwa = StringField('Klasa:', validators=[
-    DataRequired(message=blad1)])
-    rok_naboru = IntegerField('Rok naboru:', validators=[DataRequired(message=blad1)])
-    rok_matury = IntegerField('Rok matury:', validators=[DataRequired(message=blad1)])
 
-
-class UczenForm(FlaskForm):
-    id = HiddenField()
-    imie = StringField('Imię ucznia:', validators=[
-    DataRequired(message=blad1)])
-    nazwisko = StringField('Nazwisko ucznia:', validators=[
-    DataRequired(message=blad1)])
-    plec = BooleanField('Płeć ucznia:', validators=[
-    DataRequired(message=blad1)])
-    klasa = SelectField('Klasa', coerce=int)
+class DodajKlasaForm(FlaskForm):
+    klasa = StringField('Nazwa klasy: ', validators=[
+                          Required(message="blad_1")])
+    rok_naboru = StringField('Rok naboru: ', validators=[
+                          Required(message="blad_1")])
+    rok_matury = StringField('Rok matury: ', validators=[
+                          Required(message="blad_1")])
