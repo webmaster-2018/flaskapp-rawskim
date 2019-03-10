@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 # widok domyślny
 
+plec = [(0, 'męzczyzna'), (1, 'kobieta')]
 
 @app.route("/")
 def index():
