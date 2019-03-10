@@ -76,4 +76,4 @@ def get_or_404(id):
         s = Uczen.get_by_id(id)
         return s
     except Uczen.DoesNotExist:
-		abort(404)
+        abort(404)
