@@ -1,25 +1,24 @@
-#!/usr/bin/env python
-# -- coding: utf-8 --
+# -*- coding: utf-8 -*-
+# quiz-orm/forms.py
 
 from flask_wtf import FlaskForm
-from wtforms import HiddenField, StringField, BooleanField
-from wtforms import SelectField, FormField, FieldList
-from wtforms.validators import Required
+from wtforms import BooleanField, SelectField
+from wtforms import StringField, HiddenField
+from wtforms.validators import DataRequired
 
-blad_1 = 'To pole jest wymagane'
+blad1 = 'To pole jest wymagane'
 
-class DodajForm(FlaskForm):
-    imie = StringField('Imie: ', validators=[Required(message="blad_1")])
-    nazwisko = StringField('Nazwisko: ', validators=[Required(message="blad_1")])
-    plec = SelectField('Płec: ', coerce=int)
-    klasa = SelectField('Klasa: ', coerce=int)
 
-    id = HiddenField()
+class KlasaForm(FlaskForm):
+  id = HiddenField()
+  nazwa = StringField('Nazwa klasy:', validators=[DataRequired(message=blad1)])
+  rok_naboru = StringField('Rok naboru:', validators=[DataRequired(message=blad1)])
+  rok_matury = StringField('Rok matury:', validators=[DataRequired(message=blad1)])
 
-class DodajKlasaForm(FlaskForm):
-    klasa = StringField('Nazwa klasy: ', validators=[
-                          Required(message="blad_1")])
-    rok_naboru = StringField('Rok naboru: ', validators=[
-                          Required(message="blad_1")])
-    rok_matury = StringField('Rok matury: ', validators=[
-                          Required(message="blad_1")])
+
+class UczenForm(FlaskForm):
+  id = HiddenField()
+  imie = StringField('Imię ucznia:', validators=[DataRequired(message=blad1)])
+  nazwisko = StringField('Nazwisko ucznia:', validators=[DataRequired(message=blad1)])
+  plec = SelectField('Płeć ucznia:', coerce=int)
+  klasa = SelectField('Klasa', coerce=int)

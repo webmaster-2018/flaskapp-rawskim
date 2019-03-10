@@ -1,31 +1,25 @@
-{% extends "szablon.html"%}
-{% block tytul%}Uczniowie – Lista{% endblock%}
-{% block h1%}Lista klas:{% endblock%}
+{% extends "szablon.html" %}
+{% block tytul_strony %} Lista klas {% endblock %}
+{% block h1 %} Lista klas {% endblock %}
+{% block lead %} Tutaj możesz przeglądać i edytować istniejące klasy: {% endblock %}
 {% block tresc%}
 
+<ol>
+    {% for k in klasy %}
+        <li>
+            Nazwa klasy: {{ k.nazwa }}<br>
+            Rok naboru: {{ k.rok_naboru }} <br>
+            Rok matury: {{ k.rok_matury }}  <br>
+            
+            <a href="{{ url_for('usun_klase', k_id=k.id) }}">
+              <button class="btn btn-danger">Usuń</button>
+            </a>
+            <a href="{{ url_for('edytuj_klase', k_id=k.id) }}">
+              <button class="btn btn-success">Edytuj</button>
+            </a>
+           
+        </li>
+    {% endfor %}
+</ol>
 
-<div class="row">
-    <div class="col-lg-6 mx-auto">
-        <table class="table table-bordered">
-            <thead class="thead-dark">
-                <th scope="col">id</th>
-                <th style="width:25%;" scope="col">Klasa</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for c in klasa %}
-                <tr>
-                    <th scope="row">{{c}}</th>
-                    <td style="width:25%;">{{c.klasa}}</td>
-                    {% endfor %}
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-
-
-
-{% endblock%}
+{% endblock %}

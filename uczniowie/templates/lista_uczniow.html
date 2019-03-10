@@ -1,0 +1,34 @@
+{% extends "szablon.html" %}
+{% block tytul_strony %} Lista uczniów {% endblock %}
+{% block h1 %}Lista uczniów{% endblock %}
+{% block lead %}Tutaj możesz sprawdzić, czy jesteś na liście.{% endblock %}
+{% block tresc%}
+
+<ol>
+  {% for u in uczniowie %}
+    <li>
+      Imię: {{u.imie}} 
+      <br>
+      Nazwisko : {{ u.nazwisko }} 
+      <br>
+      Płeć:
+      {% if u.plec == 1 %}
+        kobieta
+      {% else%} 
+        mężczyzna
+      {% endif %} 
+      <br>
+      Klasa: {{u.klasa.nazwa}}
+      <br>
+      <a href="{{ url_for('edytuj_ucznia', u_id=u.id) }}">
+        <button class="btn btn-success">Edytuj</button>
+        
+      </a>
+      <a href="{{ url_for('usun_ucznia', u_id=u.id) }}">
+        <button class="btn btn-danger">Usuń</button>
+      </a>
+      
+    </li>
+  {% endfor %}
+</ol>
+{% endblock %}

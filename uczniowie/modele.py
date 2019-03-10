@@ -13,7 +13,6 @@ class BazaModel(Model):
     class Meta:
         database = baza
 
-
 class Klasa(BazaModel):
     nazwa = CharField(null=False)
     rok_naboru = IntegerField(default=0)

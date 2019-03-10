@@ -1,0 +1,26 @@
+{% extends "szablon.html" %}
+{% block tytul_strony %}Edytcja klas {% endblock %}
+{% block h1 %}Edytuj klasę{% endblock %}
+{% block lead %}Zedytuj wybraną klasę i zatwierdź zmiany:{% endblock %}
+{% block tresc%}
+
+<div class="container">
+    <form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.nazwa.label }}
+    {{ form.nazwa(class="form-control") }}
+    <br>
+    {{ form.rok_naboru.label }}
+    {{ form.rok_naboru(class="form-control") }}
+    <br>
+    {{ form.rok_matury.label }}
+    {{ form.rok_matury(class="form-control") }}
+    <br>
+    <input type="submit" class="btn btn-success"
+           value="Edytuj" style="float: right;">
+    </form>
+</div>
+
+
+{% endblock %}

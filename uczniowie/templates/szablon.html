@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{% block tytul %}{% endblock %}</title>
+    <title>{% block tytul_strony %}{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -31,16 +31,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{ url_for('dodaj_klasy') }}">Dodaj klasę</a>
+              <a class="nav-link js-scroll-trigger" href="{{ url_for('dodaj_klase') }}">Dodaj klasę</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{{ url_for('lista_klas') }}">Lista klas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{ url_for('dodaj') }}">Dodaj ucznia</a>
+              <a class="nav-link js-scroll-trigger" href="{{ url_for('dodaj_ucznia') }}">Dodaj ucznia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{ url_for('lista') }}">Lista uczniów</a>
+              <a class="nav-link js-scroll-trigger" href="{{ url_for('lista_uczniow') }}">Lista uczniów</a>
             </li>
           </ul>
         </div>
